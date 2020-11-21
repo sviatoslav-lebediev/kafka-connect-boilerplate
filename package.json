@@ -1,0 +1,16 @@
+{
+    "name": "consumer",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "consumer:kafka": "node src/consumer-kafka.js",
+        "consumer:rabbitmq": "node src/consumer-rabbitmq.js",
+        "producer": "node src/producer.js"
+    },
+    "dependencies": {
+        "amqplib": "0.6.0",
+        "faker": "5.1.0",
+        "kafka-node": "5.0.0",
+        "mysql": "2.18.1"
+    }
+}

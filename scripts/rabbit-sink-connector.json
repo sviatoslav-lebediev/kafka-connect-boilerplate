@@ -1,0 +1,19 @@
+{
+    "name": "RabbitMQSinkConnector",
+    "config": {
+        "connector.class": "io.confluent.connect.rabbitmq.sink.RabbitMQSinkConnector",
+        "tasks.max": "1",
+        "topics": "outbox-accounts",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.converters.ByteArrayConverter",
+        "confluent.topic.bootstrap.servers": "kafka:29092",
+        "confluent.topic.replication.factor": "1",
+        "rabbitmq.host": "rabbitmq",
+        "rabbitmq.port": "5672",
+        "rabbitmq.username": "guest",
+        "rabbitmq.password": "guest",
+        "rabbitmq.exchange": "outbox-accounts",
+        "rabbitmq.routing.key": "rkey1",
+        "rabbitmq.delivery.mode": "PERSISTENT"
+    }
+}
