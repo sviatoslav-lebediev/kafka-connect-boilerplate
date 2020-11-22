@@ -13,4 +13,15 @@ const amqp = require('amqplib');
         },
         { noAck: true }
     );
+
+    process.on('SIGINT', async () => {
+        try {
+            await channel.close();
+            await connection.close();
+        } catch (e) {
+            console.error('error', e);
+        } finally {
+            process.exit();
+        }
+    });
 })();

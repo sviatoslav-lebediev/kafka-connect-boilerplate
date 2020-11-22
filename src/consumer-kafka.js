@@ -14,3 +14,13 @@ consumer.on('message', (message) => {
 
     console.log('kafka message', inspect(value.payload, false, 5, true));
 });
+
+process.on('SIGINT', () => {
+    consumer.close((err) => {
+        if (err) {
+            console.log('error', err);
+        }
+
+        process.exit();
+    });
+});
